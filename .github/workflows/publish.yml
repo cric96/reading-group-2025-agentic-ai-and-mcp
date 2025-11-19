@@ -32,6 +32,7 @@ jobs:
           # Convert the notebook to HTML slides
           uv run jupyter nbconvert presentation.ipynb --to slides --output index.html
           
+          mv index.html.slides.html index.html
           # Inject custom CSS
           sed -i 's|</head>|<link rel="stylesheet" href="rise.css"></head>|' index.html
 
