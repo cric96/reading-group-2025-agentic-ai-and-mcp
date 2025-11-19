@@ -1,0 +1,60 @@
+name: Publish Presentation
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      - name: Convert notebook to slides
+        run: |
+          # Convert the notebook to HTML slides
+          uv run jupyter nbconvert presentation.ipynb --to slides --output index.html
+          
+          # Inject custom CSS
+          sed -i 's|</head>|<link rel="stylesheet" href="rise.css"></head>|' index.html
+
+          # Prepare the public directory
+          mkdir public
+          mv index.html public/
+          
+          # Copy resources
+          if [ -d "images" ]; then cp -r images public/; fi
+          if [ -f "rise.css" ]; then cp rise.css public/; fi
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
