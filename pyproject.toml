@@ -1,0 +1,14 @@
+[project]
+name = "reading-group-2025-agentic-ai-and-mcp"
+version = "0.1.0"
+description = "Agentic AI overview and MCP: reading group slides and code"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain==1.0.7",
+    "langchain-openai==1.0.3",
+    "jupyterlab (>=4.4.10,<5.0.0)",
+    "notebook>=7.0.0",
+    "langchain-mcp-adapters (>=0.1.12, <1.0.0)",
+    "mcp (>=1.20.0,<2.0.0)",
+    "jupyterlab-rise==0.43.1",
+]

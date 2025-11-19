@@ -1,0 +1,80 @@
+/* Custom styling for RISE presentation */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&display=swap');
+
+/* Improve typography */
+.reveal {
+    font-family: 'Fira Sans';
+    font-size: 500px;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none; /* Disable default uppercase transformation */
+    font-weight: 600;
+    color: #2c3e50;
+}
+.reveal {
+    font-size: 10em;
+}
+.reveal h1 {
+    font-size: 4em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 20px;
+}
+
+.reveal section p {
+    font-size: 1.2em !important;
+}
+.reveal ul li {
+    font-size: 1.2em !important;
+}
+.reveal ul li ul {
+    font-size: 0.8em !important;
+}
+.reveal ul li ol {
+    font-size: 0.8em !important;
+}
+.reveal h2 {
+    font-size: 2.58em;
+    color: #2980b9;
+}
+
+/* Blockquotes */
+.reveal blockquote {
+    background: #f0f8ff;
+    border-left: 8px solid #3498db;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    font-style: italic;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    width: 90%;
+}
+
+/* Code blocks */
+.reveal pre {
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.reveal pre code {
+    padding: 15px;
+    max-height: 500px;
+}
+
+/* Lists */
+.reveal ul, .reveal ol {
+    margin-bottom: 20px;
+}
+
+.reveal li {
+    margin-bottom: 10px;
+}
+
+/* Links */
+.reveal a {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.reveal a:hover {
+    text-decoration: underline;
+}
