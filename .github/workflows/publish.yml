@@ -29,20 +29,16 @@ jobs:
 
       - name: Convert notebook to slides
         run: |
-          # Convert the notebook to HTML slides
-          uv run jupyter nbconvert presentation.ipynb --to slides --output index.html
-          
-          mv index.html.slides.html index.html
-          # Inject custom CSS
-          sed -i 's|</head>|<link rel="stylesheet" href="rise.css"></head>|' index.html
+          # Use the script to convert and embed CSS
+          uv run python serve_slides.py
 
           # Prepare the public directory
           mkdir public
-          mv index.html public/
+          mv presentation.slides.html public/index.html
           
           # Copy resources
           if [ -d "images" ]; then cp -r images public/; fi
-          if [ -f "rise.css" ]; then cp rise.css public/; fi
+          cp rise.css public/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
