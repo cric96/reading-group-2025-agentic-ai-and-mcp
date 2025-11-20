@@ -16,25 +16,25 @@
     font-size: 10em;
 }
 .reveal h1 {
-    font-size: 4em;
+    font-size: 2.5em;
     border-bottom: 2px solid #3498db;
     padding-bottom: 20px;
 }
 
 .reveal section p {
-    font-size: 1.2em !important;
+    font-size: 1.1em !important;
 }
 .reveal ul li {
-    font-size: 1.2em !important;
+    font-size: 1.1em !important;
 }
 .reveal ul li ul {
-    font-size: 0.8em !important;
+    font-size: 0.9em !important;
 }
 .reveal ul li ol {
     font-size: 0.8em !important;
 }
 .reveal h2 {
-    font-size: 2.58em;
+    font-size: 1.5em;
     color: #2980b9;
 }
 
@@ -57,7 +57,6 @@
 
 .reveal pre code {
     padding: 15px;
-    max-height: 500px;
 }
 
 /* Lists */
